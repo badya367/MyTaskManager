@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TaskCatalog>
+        
+    <Task>
+        		
+        <TaskName> ЗАДАЧА_ТЕСТ</TaskName>
+                
+        <Description>СОЗДАЛИ В РУЧНУЮ</Description>
+                
+        <Time>БЕСКОНЕЧНОСТЬ- НЕ ПРИДЕЛ </Time>
+        		
+        <Contacts>8(888)-888-88-88</Contacts>
+            
+    </Task>
+    
+    <entities.Task>
+        <TaskName>Задача 1</TaskName>
+        <Description>Описание задачи 1</Description>
+        <Time>2</Time>
+        <Contacts>888888888</Contacts>
+    </entities.Task>
+</TaskCatalog>
