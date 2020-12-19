@@ -8,5 +8,9 @@ import java.util.List;
 public class TaskJournal {
     List <Task> tasks = new ArrayList<>();
 
+    public void addTaskList(TaskJournal tasks) {
+
+    }
+
 
 }

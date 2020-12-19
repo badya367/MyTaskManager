@@ -16,22 +16,22 @@ public class ConsoleTaskServiceImpl implements TaskService {
     @Override
     public Task createTask() {
         Task task = new Task();
-        Scanner in_task_name = new Scanner(System.in);
+        Scanner inTaskName = new Scanner(System.in);
         System.out.println("Введите название задачи: ");
-        String taskNameImpl = in_task_name.nextLine();
+        String taskNameImpl = inTaskName.nextLine();
 
 
-        Scanner in_task_description = new Scanner(System.in);
+        Scanner inTaskDescription = new Scanner(System.in);
         System.out.println("Введите описание задачи: ");
-        String descriptionImpl = in_task_description.nextLine();
+        String descriptionImpl = inTaskDescription.nextLine();
 
-        Scanner in_task_time = new Scanner(System.in);
+        Scanner inTaskTime = new Scanner(System.in);
         System.out.println("Время на выполнение задачи: ");
-        int timeImpl = in_task_time.nextInt();
+        int timeImpl = inTaskTime.nextInt();
 
-        Scanner in_task_contact = new Scanner(System.in);
+        Scanner inTaskContact = new Scanner(System.in);
         System.out.println("Контакты: ");
-        String contactsImpl = in_task_contact.nextLine();
+        String contactsImpl = inTaskContact.nextLine();
 
         task.setTaskName(taskNameImpl);
         task.setDescription(descriptionImpl);
@@ -56,5 +56,10 @@ public class ConsoleTaskServiceImpl implements TaskService {
         } catch (SAXException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showTaskList(Task task) {
+        task.getTaskName();
+
     }
 }
