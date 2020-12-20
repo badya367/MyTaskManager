@@ -2,9 +2,11 @@ package services;
 
 import entities.Task;
 import org.xml.sax.SAXException;
+import services.taskServices.TaskService;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleTaskServiceImpl implements TaskService {
@@ -56,6 +58,11 @@ public class ConsoleTaskServiceImpl implements TaskService {
         } catch (SAXException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+        return null;
     }
 
     public void showTaskList(Task task) {

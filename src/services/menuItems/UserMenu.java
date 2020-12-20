@@ -1,19 +1,46 @@
-package services;
+package services.menuItems;
 
 import entities.Task;
-import entities.TaskJournal;
+import services.ConsoleTaskServiceImpl;
+import services.Menu;
+import services.taskServices.TaskService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class UserMenu {
+public class UserMenu implements Menu {
+    private String title;
+    private List<Menu> menus = new ArrayList<>();
+    private Menu parent = null;
+
+    public List<Menu> getMenus() {
+        return menus;
+    }
+
+    public UserMenu(String title) {
+        this.title = title;
+        addChild(new ExitMenu());
+
+    }
+
+    public void addChild(Menu menu) {
+      menus.add(menu);
+    }
+
 
     private void printMenu() {
-        System.out.println("1- Просмотреть задачи.");
+        System.out.println(title);
+        for (Menu menu : menus) {
+            System.out.println(menus.indexOf(menu)+". "+menu.getTitle());
+        }
+
+/*      System.out.println("1- Просмотреть задачи.");
         System.out.println("2- Добавить задачу.");
         System.out.println("3- Помощь.");
         System.out.println("4- О программе.");
         System.out.println("5- Вывести срочную задачу.");
-        System.out.println("6- Выход");
+        System.out.println("6- Выход");*/
     }
 
     private void selectMenu(int numberMenu) {
@@ -52,4 +79,25 @@ public class UserMenu {
             selectMenu(userInput.nextInt());
         }
     }
+
+    @Override
+    public void showOptions() {
+        printMenu();
+
+    }
+
+    @Override
+    public Menu executeOption(String option) {
+        Menu menu = menus.get(Integer.parseInt(option));
+        if (menu instanceof GoToParent){
+            return menu.executeOption("");
+        }
+        return menu;
+    }
+
+    @Override
+    public String getTitle() {
+        return title;
+    }
+
 }
